@@ -1,0 +1,85 @@
+{% extends "feed/base.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{<link rel="stylesheet" href="{{ STATIC_URL }}mystyle.css" />
+
+{%block entry%}
+<div>
+  {%csrf_token%}
+    <form method="POST" class="form-group" enctype="multipart/form-data">
+      {%csrf_token%} 
+        <div class="w3-card w3-light-grey" style="text-align: center;">
+          {%csrf_token%}
+          {{form|crispy}}
+        </div>
+    <br>
+
+        <button class="w3-button w3-black" type="submit" style="width:29%;height:64px;left:37%;position: relative;">Submit</button>
+    </form>
+</div>
+{%endblock%}
+
+{%block intro%}
+{%endblock%}
+
+{%block pop_posts%}
+{%endblock%}
+
+{%block links%}
+<div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4><b>Links</b></h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+
+      <a href="/register" style="text-decoration: none;">
+        <li class="w3-padding-16">
+          <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Register.</span><br>
+          <span>Create an Account</span>
+        </li>
+      </a>
+
+      <a href="/login" style="text-decoration: none;">
+        <li class="w3-padding-16">
+          <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Login.</span><br>
+          <span>Access your Account</span>
+        </li>
+      </a>
+      <a href="/logout" style="text-decoration: none;">
+        <li class="w3-padding-16">
+          <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Logout.</span><br>
+          <span>Exit your Account</span>
+        </li>
+      </a>
+      <a href="/feed/1" style="text-decoration: none;">
+        <li class="w3-padding-16">
+          <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Feed.</span><br>
+          <span>Browse the latest posts.</span>
+        </li> 
+      </a>
+      <a href="/Contact" style="text-decoration: none;">
+        <li class="w3-padding-16">
+          <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Contact Us.</span><br>
+          <span>Always here for you.</span>
+        </li>   
+      </a>
+      <a href="/about" style="text-decoration: none;">
+        <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+          <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">About.</span><br>
+          <span>More about us.</span>
+        </li>
+      </a>    
+      </ul>
+  </div>
+{%endblock%}
+
+{%block tags%}
+{%endblock%}

@@ -1,0 +1,191 @@
+{%extends 'feed/base.html'%}
+
+{%block intro_username%}
+{{u_name}}
+{%endblock%}
+
+
+<!-- not done yet-->
+{%block intro_avatar%}
+    {%load static%}
+  <img src="{% static 'registration/avatar_image.jpg' %}" style="width:100%;height:450px;">
+{%endblock%}
+
+
+{%block into_inro%}
+{{descrip}}
+{%endblock%}
+
+
+
+
+{%block entry%}
+
+
+  <div class="w3-col l8 s12">
+    {%for feed in feed_set %}
+  
+
+
+
+
+      <!-- Blog entry -->
+      <div class="w3-card-4 w3-margin w3-white">
+        {% load static %}
+        <img src ="{%static '../media/'%}{{feed.display_photo}}" alt="Profile Picture" style="width:100%">  
+        <div class="w3-container">
+          <h3><b>{{feed.display_title}}</b></h3>
+          <h5>{{feed.display_text}} <span class="w3-opacity">April 7, 2014</span></h5>
+        </div>
+
+        <div class="w3-container">
+          <p>Debakun12</p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+
+                <p><button  onclick="location.href = '{{u_name}}/{{feed.display_link}}'" class="w3-button w3-padding-large w3-white w3-border" type="submit"><b>READ MORE »</b></button></p>
+            
+              </div>
+            <div class="w3-col m4 w3-hide-small">
+              <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    <!-- END BLOG ENTRIES -->
+    <hr>
+  <!-- END BLOG ENTRIES -->
+  {%endfor%}
+  </div>
+
+
+{%endblock%}
+
+{%block links%}
+{% if user.is_authenticated %}
+
+<div class="w3-card w3-margin">
+  <div class="w3-container w3-padding">
+    <h4><b>Links</b></h4>
+  </div>
+  <ul class="w3-ul w3-hoverable w3-white">
+
+    <a href="/create" style="text-decoration: none;">
+      <li class="w3-padding-16">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Create.</span><br>
+        <span>Create a blog</span>
+      </li>
+    </a>
+    <a href="/logout" style="text-decoration: none;">
+      <li class="w3-padding-16">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Logout.</span><br>
+        <span>Exit your Account</span>
+      </li>
+    </a>
+    <a href="/feed" style="text-decoration: none;">
+      <li class="w3-padding-16">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Feed.</span><br>
+        <span>Browse the latest posts.</span>
+      </li> 
+    </a>
+    <a href="/Contact" style="text-decoration: none;">
+      <li class="w3-padding-16">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Contact Us.</span><br>
+        <span>Always here for you.</span>
+      </li>   
+    </a>
+    <a href="/about" style="text-decoration: none;">
+      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">About.</span><br>
+        <span>More about us.</span>
+      </li>
+    </a>    
+    </ul>
+</div>
+
+{%else%}
+
+
+<div class="w3-card w3-margin">
+  <div class="w3-container w3-padding">
+    <h4><b>Links</b></h4>
+  </div>
+  <ul class="w3-ul w3-hoverable w3-white">
+
+    <a href="/login" style="text-decoration: none;">
+      <li class="w3-padding-16">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Login.</span><br>
+        <span>Login.</span>
+      </li>
+    </a>
+    <a href="/register" style="text-decoration: none;">
+      <li class="w3-padding-16">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Create an account.</span><br>
+        <span>Create your Account</span>
+      </li>
+    </a>
+    <a href="/feed" style="text-decoration: none;">
+      <li class="w3-padding-16">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Feed.</span><br>
+        <span>Browse the latest posts.</span>
+      </li> 
+    </a>
+    <a href="/Contact" style="text-decoration: none;">
+      <li class="w3-padding-16">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Contact Us.</span><br>
+        <span>Always here for you.</span>
+      </li>   
+    </a>
+    <a href="/about" style="text-decoration: none;">
+      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+        <img src="{% static 'registration/temp.jpg' %}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">About.</span><br>
+        <span>More about us.</span>
+      </li>
+    </a>    
+    </ul>
+</div>
+
+{%endif%}
+
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+{%block nav%}
+  {% if id == 1%}
+    <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+      <button disabled onclick="location.href = './{{id_prev}}'" class="w3-button  w3-black w3-padding-large w3-margin-bottom">Previous</button>
+      <button onclick="location.href = './{{id_next}}'" class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </footer>
+  {%else%}
+  <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+    <button  onclick="location.href = './{{id_prev}}'" class="w3-button  w3-black w3-padding-large w3-margin-bottom">Previous</button>
+    <button onclick="location.href = './{{id_next}}'" class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer>
+  {%endif%}
+
+{%endblock%} 
+
+
+

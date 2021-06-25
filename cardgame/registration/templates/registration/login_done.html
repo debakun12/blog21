@@ -1,0 +1,21 @@
+{%extends "registration/base.html"%}
+
+{% if user.is_authenticated %}
+    {% block header %}
+        Logged In. Welcome {{user.username}}.
+    {% endblock %}
+{%endif%}
+
+{% block content %}
+There is no content yet. New content arriving shortly.
+{% endblock %}
+
+{% block show_feed%}
+<a href="/feed/{{user.username}}" style="text-decoration: none;">
+    <li class="w3-padding-16">
+      <img src="/w3images/gondol.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+      <span class="w3-large">Feed.</span><br>
+      <span>Browse the latest posts.</span>
+    </li> 
+  </a>
+{% endblock%}
